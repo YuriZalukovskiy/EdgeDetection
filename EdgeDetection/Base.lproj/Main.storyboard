@@ -1,24 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c35-rN-cyf">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Start View Controller-->
+        <scene sceneID="dpA-fQ-a63">
+            <objects>
+                <viewController id="c35-rN-cyf" customClass="StartViewController" customModule="EdgeDetection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R88-c3-qjN">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQb-Ak-wJw">
+                                <rect key="frame" x="132" y="738" width="126" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="Zzc-iX-dAe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Choose image"/>
+                                <connections>
+                                    <action selector="chooseImagePressed:" destination="c35-rN-cyf" eventType="touchUpInside" id="3DU-Lc-jc8"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.down.doc" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MPf-EZ-WcS">
+                                <rect key="frame" x="20" y="64.333333333333314" width="350" height="653.66666666666663"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMs-qb-qhZ">
+                                <rect key="frame" x="147.66666666666666" y="774" width="95" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="uJy-Ea-urn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Apply filter"/>
+                                <connections>
+                                    <action selector="applyFilterPressed:" destination="c35-rN-cyf" eventType="touchUpInside" id="oig-Jn-51O"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Uzd-J7-pP5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XMs-qb-qhZ" firstAttribute="centerX" secondItem="R88-c3-qjN" secondAttribute="centerX" id="5xt-oL-qdH"/>
+                            <constraint firstItem="XMs-qb-qhZ" firstAttribute="top" secondItem="tQb-Ak-wJw" secondAttribute="bottom" id="JLj-Et-CZD"/>
+                            <constraint firstItem="Uzd-J7-pP5" firstAttribute="bottom" secondItem="XMs-qb-qhZ" secondAttribute="bottom" id="NJx-N3-pvo"/>
+                            <constraint firstItem="MPf-EZ-WcS" firstAttribute="top" secondItem="Uzd-J7-pP5" secondAttribute="top" constant="20" id="OZR-Cz-SOZ"/>
+                            <constraint firstItem="tQb-Ak-wJw" firstAttribute="centerX" secondItem="R88-c3-qjN" secondAttribute="centerX" id="ZSM-RL-00E"/>
+                            <constraint firstItem="MPf-EZ-WcS" firstAttribute="leading" secondItem="Uzd-J7-pP5" secondAttribute="leading" constant="20" id="bh0-PX-QAR"/>
+                            <constraint firstItem="Uzd-J7-pP5" firstAttribute="trailing" secondItem="MPf-EZ-WcS" secondAttribute="trailing" constant="20" id="hNH-kp-XYW"/>
+                            <constraint firstItem="tQb-Ak-wJw" firstAttribute="top" secondItem="MPf-EZ-WcS" secondAttribute="bottom" constant="20" id="mcP-B3-Aep"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="applyFilterButton" destination="XMs-qb-qhZ" id="pr9-yI-CUf"/>
+                        <outlet property="imageView" destination="MPf-EZ-WcS" id="AcC-rO-kxs"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="goToResult" id="ReF-au-W5g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ISd-av-Tmk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-692" y="77"/>
+        </scene>
+        <!--Result View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ResultViewController" customModule="EdgeDetection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wN9-7U-wL7">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                                <subviews>
+                                    <glkView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DtJ-2k-wpw" customClass="RenderView" customModule="GPUImage">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="395"/>
+                                    </glkView>
+                                    <glkView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UV8-MH-FEV" customClass="RenderView" customModule="GPUImage">
+                                        <rect key="frame" x="0.0" y="395" width="390" height="395"/>
+                                    </glkView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wN9-7U-wL7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IUC-O8-Scn"/>
+                            <constraint firstAttribute="trailing" secondItem="wN9-7U-wL7" secondAttribute="trailing" id="aPm-cy-DUy"/>
+                            <constraint firstItem="wN9-7U-wL7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="qTz-0J-pa8"/>
+                            <constraint firstAttribute="bottom" secondItem="wN9-7U-wL7" secondAttribute="bottom" id="ydp-h5-6or"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="x36-bi-3bE"/>
+                    <connections>
+                        <outlet property="lowerRenderView" destination="UV8-MH-FEV" id="WoS-eT-xHw"/>
+                        <outlet property="upperRenderView" destination="DtJ-2k-wpw" id="go6-IZ-Qd4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="77.678571428571431"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.down.doc" catalog="system" width="115" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
